@@ -24,7 +24,7 @@ namespace Fresh\Transliteration;
 class RussianToEnglish implements TransliteratorInterface
 {
     /** @const array */
-    private const RUSSIAN_TO_ENGLISH_RULES = [
+    private $RUSSIAN_TO_ENGLISH_RULES = [
         'а' => 'a',
         'б' => 'b',
         'в' => 'v',
@@ -104,8 +104,8 @@ class RussianToEnglish implements TransliteratorInterface
 
         if (\mb_strlen($russianText) > 0) {
             $transliteratedText = \str_replace(
-                \array_keys(self::RUSSIAN_TO_ENGLISH_RULES),
-                \array_values(self::RUSSIAN_TO_ENGLISH_RULES),
+                \array_keys($this->RUSSIAN_TO_ENGLISH_RULES),
+                \array_values($this->RUSSIAN_TO_ENGLISH_RULES),
                 $russianText
             );
         }
